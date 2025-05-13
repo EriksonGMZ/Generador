@@ -1,141 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador de Robux | Roblox</title>
+  <title>Regalo Exclusivo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      background: #f2f2f2;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #141414, #1e1e1e);
-      color: white;
-      text-align: center;
+      margin: 0;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
     h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-      color: #00ff90;
-    }
-    .formulario {
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 12px;
-      max-width: 420px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,255,150,0.2);
-    }
-    input, select, button {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-    }
-    input, select {
-      background: #2c2c2c;
-      color: #fff;
-    }
-    button {
-      background: #00d68f;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #00a16a;
-    }
-    .robux {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #0f0;
-      display: none;
-    }
-    .avatars {
+      font-size: 30px;
+      color: #333;
+      text-align: center;
       margin-top: 30px;
     }
-    .avatars img {
-      width: 100px;
-      height: auto;
-      margin: 10px;
-      border-radius: 8px;
-      border: 2px solid #00d68f;
-      cursor: pointer;
-      transition: transform 0.2s ease;
+    p {
+      font-size: 18px;
+      text-align: center;
+      color: #444;
     }
-    .avatars img:hover {
-      transform: scale(1.05);
-      border-color: #0f0;
+    .boton {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 35px;
+      font-size: 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .video-container {
+      margin-top: 20px;
+      max-width: 300px;
+      width: 100%;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .visual-help {
+      margin-top: 40px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .visual-help h2 {
+      color: #856404;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .step {
+      margin-bottom: 25px;
+    }
+    .step img {
+      width: 90%;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+    }
+    .step p {
+      font-size: 17px;
+      color: #444;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
 
-  <h1>🤑 Generador de Robux + Avatar</h1>
-  <p>¡Selecciona tu avatar favorito y gana hasta <strong>99,999 Robux</strong>!</p>
+  <h1>🎁 ¡Tu regalo exclusivo está listo!</h1>
 
-  <div class="formulario">
-    <input type="text" id="usuario" placeholder="Nombre de usuario de Roblox">
-    <select id="plataforma">
-      <option value="">Selecciona tu plataforma</option>
-      <option value="windows">Windows</option>
-      <option value="xbox">Xbox</option>
-      <option value="mobile">Mobile</option>
-    </select>
-    <select id="cantidad">
-      <option value="">Cantidad de Robux</option>
-      <option value="1000">1,000</option>
-      <option value="5000">5,000</option>
-      <option value="10000">10,000</option>
-      <option value="99999">99,999</option>
-    </select>
-
-    <div class="avatars">
-      <p>Selecciona tu avatar:</p>
-      <img src="https://tr.rbxcdn.com/9a46c6d8e87b1d5a06fa26d18de61b3b/420/420/Avatar/Png" alt="Avatar 1" onclick="selectAvatar(1)">
-      <img src="https://tr.rbxcdn.com/3df3ad1ef7cf3ed6ea7923f2b3cf13cb/420/420/Avatar/Png" alt="Avatar 2" onclick="selectAvatar(2)">
-      <img src="https://tr.rbxcdn.com/43a839f2b193f0d5cf02b9cced59ac00/420/420/Avatar/Png" alt="Avatar 3" onclick="selectAvatar(3)">
-    </div>
-
-    <button onclick="generar()">Generar Robux</button>
-    <div class="robux" id="mensaje">Procesando... 🔄</div>
+  <div class="video-container">
+    <video controls autoplay muted playsinline>
+      <source src="../1%20Video.mp4" type="video/mp4">
+      Tu navegador no soporta este video.
+    </video>
   </div>
 
-  <script>
-    let avatarSeleccionado = null;
+  <p>Haz clic en el botón para continuar:</p>
 
-    function selectAvatar(id) {
-      avatarSeleccionado = id;
-      alert("Avatar " + id + " seleccionado.");
-    }
+  <a class="boton" href="https://tusitio.com/ruta" target="_blank" rel="noopener noreferrer">Abrir ahora</a>
 
-    function generar() {
-      const usuario = document.getElementById('usuario').value.trim();
-      const plataforma = document.getElementById('plataforma').value;
-      const cantidad = document.getElementById('cantidad').value;
-      const mensaje = document.getElementById('mensaje');
+  <div class="visual-help">
+    <h2>¿No se abre desde TikTok? Sigue estos pasos:</h2>
 
-      if (!usuario || !plataforma || !cantidad || !avatarSeleccionado) {
-        alert("Por favor, completa todos los campos y selecciona un avatar.");
-        return;
-      }
+    <div class="step">
+      <img src="https://i.imgur.com/5nBtGdS.png" alt="Paso 1: toca los tres puntos">
+      <p>1. Toca los <strong>3 puntos</strong> en la esquina superior derecha</p>
+    </div>
 
-      mensaje.style.display = 'block';
-      mensaje.textContent = "Conectando con el servidor de Roblox... 🔗";
+    <div class="step">
+      <img src="https://i.imgur.com/N9vr4Ia.png" alt="Paso 2: abrir en navegador">
+      <p>2. Selecciona <strong>“Abrir en el navegador”</strong> en el menú</p>
+    </div>
 
-      setTimeout(() => {
-        mensaje.textContent = "Verificando cuenta de " + usuario + " 👤";
-      }, 2000);
-
-      setTimeout(() => {
-        mensaje.textContent = `✅ ¡${cantidad} Robux y Avatar #${avatarSeleccionado} generados exitosamente! 🎉`;
-      }, 4000);
-    }
-  </script>
+    <p style="margin-top: 15px;">Esto evitará que TikTok bloquee el enlace.</p>
+  </div>
 
 </body>
 </html>
