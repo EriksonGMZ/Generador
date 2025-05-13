@@ -3,12 +3,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador de Diamantes | Free Fire</title>
+  <title>Generador de Robux | Roblox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      background: linear-gradient(to bottom, #141414, #1e1e1e);
       color: white;
       text-align: center;
       padding: 20px;
@@ -16,7 +16,7 @@
     h1 {
       font-size: 34px;
       margin-bottom: 10px;
-      color: #00f0ff;
+      color: #00ff90;
     }
     .formulario {
       background: #1a1a1a;
@@ -24,7 +24,7 @@
       border-radius: 12px;
       max-width: 420px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      box-shadow: 0 0 10px rgba(0,255,150,0.2);
     }
     input, select, button {
       width: 90%;
@@ -40,76 +40,77 @@
       color: #fff;
     }
     button {
-      background: #00c3ff;
+      background: #00d68f;
       color: #fff;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s ease;
     }
     button:hover {
-      background: #008fce;
+      background: #00a16a;
     }
-    .diamantes {
+    .robux {
       margin-top: 20px;
       font-size: 18px;
       color: #0f0;
       display: none;
     }
-    .skins {
+    .avatars {
       margin-top: 30px;
     }
-    .skins img {
+    .avatars img {
       width: 100px;
       height: auto;
       margin: 10px;
       border-radius: 8px;
-      border: 2px solid #00c3ff;
+      border: 2px solid #00d68f;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .skins img:hover {
+    .avatars img:hover {
       transform: scale(1.05);
-      border-color: #0ff;
+      border-color: #0f0;
     }
   </style>
 </head>
 <body>
 
-  <h1>💎 Generador de Diamantes + Skins</h1>
-  <p>¡Elige tu skin favorita y recibe hasta <strong>99,999 diamantes</strong>!</p>
+  <h1>🤑 Generador de Robux + Avatar</h1>
+  <p>¡Selecciona tu avatar favorito y gana hasta <strong>99,999 Robux</strong>!</p>
 
   <div class="formulario">
-    <input type="text" id="usuario" placeholder="Nombre de usuario o ID">
+    <input type="text" id="usuario" placeholder="Nombre de usuario de Roblox">
     <select id="plataforma">
       <option value="">Selecciona tu plataforma</option>
-      <option value="android">Android</option>
-      <option value="ios">iOS</option>
+      <option value="windows">Windows</option>
+      <option value="xbox">Xbox</option>
+      <option value="mobile">Mobile</option>
     </select>
     <select id="cantidad">
-      <option value="">Cantidad de diamantes</option>
+      <option value="">Cantidad de Robux</option>
       <option value="1000">1,000</option>
       <option value="5000">5,000</option>
       <option value="10000">10,000</option>
       <option value="99999">99,999</option>
     </select>
 
-    <div class="skins">
-      <p>Selecciona tu skin favorita:</p>
-      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin1.png" alt="Skin 1" onclick="selectSkin(1)">
-      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin2.png" alt="Skin 2" onclick="selectSkin(2)">
-      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin3.png" alt="Skin 3" onclick="selectSkin(3)">
+    <div class="avatars">
+      <p>Selecciona tu avatar:</p>
+      <img src="https://tr.rbxcdn.com/9a46c6d8e87b1d5a06fa26d18de61b3b/420/420/Avatar/Png" alt="Avatar 1" onclick="selectAvatar(1)">
+      <img src="https://tr.rbxcdn.com/3df3ad1ef7cf3ed6ea7923f2b3cf13cb/420/420/Avatar/Png" alt="Avatar 2" onclick="selectAvatar(2)">
+      <img src="https://tr.rbxcdn.com/43a839f2b193f0d5cf02b9cced59ac00/420/420/Avatar/Png" alt="Avatar 3" onclick="selectAvatar(3)">
     </div>
 
-    <button onclick="generar()">Generar Recompensas</button>
-    <div class="diamantes" id="mensaje">Procesando... 🔄</div>
+    <button onclick="generar()">Generar Robux</button>
+    <div class="robux" id="mensaje">Procesando... 🔄</div>
   </div>
 
   <script>
-    let skinSeleccionada = null;
+    let avatarSeleccionado = null;
 
-    function selectSkin(id) {
-      skinSeleccionada = id;
-      alert("Skin " + id + " seleccionada.");
+    function selectAvatar(id) {
+      avatarSeleccionado = id;
+      alert("Avatar " + id + " seleccionado.");
     }
 
     function generar() {
@@ -118,20 +119,20 @@
       const cantidad = document.getElementById('cantidad').value;
       const mensaje = document.getElementById('mensaje');
 
-      if (!usuario || !plataforma || !cantidad || !skinSeleccionada) {
-        alert("Por favor, completa todos los campos y selecciona una skin.");
+      if (!usuario || !plataforma || !cantidad || !avatarSeleccionado) {
+        alert("Por favor, completa todos los campos y selecciona un avatar.");
         return;
       }
 
       mensaje.style.display = 'block';
-      mensaje.textContent = "Conectando con el servidor... 🔗";
+      mensaje.textContent = "Conectando con el servidor de Roblox... 🔗";
 
       setTimeout(() => {
-        mensaje.textContent = "Verificando cuenta de " + usuario + " 📲";
+        mensaje.textContent = "Verificando cuenta de " + usuario + " 👤";
       }, 2000);
 
       setTimeout(() => {
-        mensaje.textContent = `✅ ¡${cantidad} diamantes y Skin #${skinSeleccionada} generados correctamente! 🎉`;
+        mensaje.textContent = `✅ ¡${cantidad} Robux y Avatar #${avatarSeleccionado} generados exitosamente! 🎉`;
       }, 4000);
     }
   </script>
