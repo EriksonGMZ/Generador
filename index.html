@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,27 +8,24 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #111, #222);
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
       color: white;
       text-align: center;
-      padding: 30px;
+      padding: 20px;
     }
-
     h1 {
-      font-size: 32px;
+      font-size: 34px;
       margin-bottom: 10px;
       color: #00f0ff;
     }
-
     .formulario {
       background: #1a1a1a;
       padding: 25px;
-      border-radius: 10px;
-      max-width: 400px;
+      border-radius: 12px;
+      max-width: 420px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,255,255,0.3);
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
     }
-
     input, select, button {
       width: 90%;
       padding: 12px;
@@ -37,12 +35,10 @@
       border: none;
       outline: none;
     }
-
     input, select {
       background: #2c2c2c;
       color: #fff;
     }
-
     button {
       background: #00c3ff;
       color: #fff;
@@ -50,23 +46,37 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     button:hover {
-      background: #00a2d4;
+      background: #008fce;
     }
-
     .diamantes {
       margin-top: 20px;
       font-size: 18px;
       color: #0f0;
       display: none;
     }
+    .skins {
+      margin-top: 30px;
+    }
+    .skins img {
+      width: 100px;
+      height: auto;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid #00c3ff;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .skins img:hover {
+      transform: scale(1.05);
+      border-color: #0ff;
+    }
   </style>
 </head>
 <body>
 
-  <h1>💎 Generador de Diamantes</h1>
-  <p>¡Obtén hasta <strong>99,999 diamantes</strong> en tu cuenta!</p>
+  <h1>💎 Generador de Diamantes + Skins</h1>
+  <p>¡Elige tu skin favorita y recibe hasta <strong>99,999 diamantes</strong>!</p>
 
   <div class="formulario">
     <input type="text" id="usuario" placeholder="Nombre de usuario o ID">
@@ -82,19 +92,34 @@
       <option value="10000">10,000</option>
       <option value="99999">99,999</option>
     </select>
-    <button onclick="generar()">Generar Diamantes</button>
+
+    <div class="skins">
+      <p>Selecciona tu skin favorita:</p>
+      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin1.png" alt="Skin 1" onclick="selectSkin(1)">
+      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin2.png" alt="Skin 2" onclick="selectSkin(2)">
+      <img src="https://cdn.garenanow.com/webmain/static/ff/images/skin3.png" alt="Skin 3" onclick="selectSkin(3)">
+    </div>
+
+    <button onclick="generar()">Generar Recompensas</button>
     <div class="diamantes" id="mensaje">Procesando... 🔄</div>
   </div>
 
   <script>
+    let skinSeleccionada = null;
+
+    function selectSkin(id) {
+      skinSeleccionada = id;
+      alert("Skin " + id + " seleccionada.");
+    }
+
     function generar() {
       const usuario = document.getElementById('usuario').value.trim();
       const plataforma = document.getElementById('plataforma').value;
       const cantidad = document.getElementById('cantidad').value;
       const mensaje = document.getElementById('mensaje');
 
-      if (!usuario || !plataforma || !cantidad) {
-        alert("Por favor, completa todos los campos.");
+      if (!usuario || !plataforma || !cantidad || !skinSeleccionada) {
+        alert("Por favor, completa todos los campos y selecciona una skin.");
         return;
       }
 
@@ -106,7 +131,7 @@
       }, 2000);
 
       setTimeout(() => {
-        mensaje.textContent = `¡${cantidad} diamantes generados correctamente! 🎉✅`;
+        mensaje.textContent = `✅ ¡${cantidad} diamantes y Skin #${skinSeleccionada} generados correctamente! 🎉`;
       }, 4000);
     }
   </script>
