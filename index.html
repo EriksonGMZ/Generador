@@ -1,132 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Regalo Exclusivo con Guía Visual</title>
+  <title>Generador de Gemas | Stumble Guys</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #f2f2f2;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #141E30, #243B55);
+      color: white;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      text-align: center;
     }
     h1 {
-      font-size: 30px;
-      color: #333;
-      text-align: center;
-      margin-top: 30px;
-    }
-    p {
-      font-size: 18px;
-      text-align: center;
-      color: #444;
-    }
-    .boton {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 35px;
-      font-size: 20px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .video-container {
+      font-size: 32px;
       margin-top: 20px;
-      max-width: 300px;
-      width: 100%;
+      color: #00e6ff;
     }
-    video {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
+    .formulario {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 420px;
+      margin: 30px auto;
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
     }
-    .visual-help {
-      margin-top: 40px;
-      background: #fff3cd;
-      border: 1px solid #ffeeba;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-    }
-    .visual-help h2 {
-      color: #856404;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .step {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .step img {
+    input, select, button {
       width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+    input, select {
+      background-color: #222;
+      color: white;
+    }
+    button {
+      background-color: #00c3ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #009ec9;
+    }
+    .result {
+      margin-top: 20px;
+      display: none;
+      font-size: 18px;
+      color: #00ff99;
+    }
+    .avatar-container {
+      margin-top: 20px;
+    }
+    .avatar-container img {
+      width: 90px;
       border-radius: 10px;
-      border: 2px solid #ddd;
+      margin: 5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.3s;
     }
-    .step::after {
-      content: "➤";
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 40px;
-      color: red;
-      animation: pulse 1s infinite;
+    .avatar-container img:hover {
+      border-color: #00e6ff;
+      transform: scale(1.05);
     }
-    .step:nth-child(3)::after {
-      top: 30%;
-      right: 20px;
-    }
-    .step p {
-      font-size: 17px;
-      color: #444;
-      margin-top: 8px;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 1; }
+    .avatar-container img.selected {
+      border-color: #00ff99;
     }
   </style>
 </head>
 <body>
 
-  <h1>🎁 ¡Tu regalo exclusivo está listo!</h1>
+  <h1>💎 Generador de Gemas Stumble Guys</h1>
+  <p>Elige tu skin favorita y recibe hasta <strong>50,000 gemas</strong> gratis</p>
 
-  <div class="video-container">
-    <video controls autoplay muted playsinline>
-      <source src="../7%20Video.mp4" type="video/mp4">
-      Tu navegador no soporta este video.
-    </video>
-  </div>
+  <div class="formulario">
+    <input type="text" id="usuario" placeholder="Nombre de usuario o ID de Stumble Guys">
+    <select id="plataforma">
+      <option value="">Selecciona tu plataforma</option>
+      <option value="android">Android</option>
+      <option value="ios">iOS</option>
+      <option value="steam">Steam</option>
+    </select>
+    <select id="cantidad">
+      <option value="">Cantidad de gemas</option>
+      <option value="500">500</option>
+      <option value="1000">1,000</option>
+      <option value="5000">5,000</option>
+      <option value="50000">50,000</option>
+    </select>
 
-  <p>Haz clic en el botón para continuar:</p>
-
-  <a class="boton" href="https://tusitio.com/ruta" target="_blank" rel="noopener noreferrer">Abrir ahora</a>
-
-  <div class="visual-help">
-    <h2>¿No se abre desde TikTok? Mira esto 👇</h2>
-
-    <div class="step">
-      <img src="https://i.imgur.com/BmFteAW.jpeg" alt="Paso 1">
-      <p>1. Toca los <strong>3 puntos</strong> arriba a la derecha</p>
+    <div class="avatar-container">
+      <p>Selecciona una skin:</p>
+      <img src="https://static.wikia.nocookie.net/stumble-guys/images/2/21/Default-Guy.png" alt="Default" onclick="seleccionar(1)">
+      <img src="https://static.wikia.nocookie.net/stumble-guys/images/f/f1/Golden-Guy.png" alt="Golden" onclick="seleccionar(2)">
+      <img src="https://static.wikia.nocookie.net/stumble-guys/images/d/d5/Ninja.png" alt="Ninja" onclick="seleccionar(3)">
     </div>
 
-    <div class="step">
-      <img src="https://i.imgur.com/gztDxPk.jpeg" alt="Paso 2">
-      <p>2. Selecciona <strong>“Abrir en el navegador”</strong></p>
-    </div>
+    <button onclick="generar()">Generar Gemas</button>
+    <div class="result" id="resultado">Procesando solicitud... 🔄</div>
   </div>
+
+  <script>
+    let skinSeleccionada = null;
+
+    function seleccionar(id) {
+      skinSeleccionada = id;
+      document.querySelectorAll('.avatar-container img').forEach(img => img.classList.remove('selected'));
+      document.querySelectorAll('.avatar-container img')[id - 1].classList.add('selected');
+    }
+
+    function generar() {
+      const usuario = document.getElementById('usuario').value.trim();
+      const plataforma = document.getElementById('plataforma').value;
+      const cantidad = document.getElementById('cantidad').value;
+      const resultado = document.getElementById('resultado');
+
+      if (!usuario || !plataforma || !cantidad || !skinSeleccionada) {
+        alert("Por favor completa todos los campos y selecciona una skin.");
+        return;
+      }
+
+      resultado.style.display = "block";
+      resultado.textContent = "Conectando con servidores de Stumble Guys...";
+
+      setTimeout(() => {
+        resultado.textContent = `✅ ¡${cantidad} gemas y skin #${skinSeleccionada} enviadas correctamente a ${usuario}! 🎉`;
+      }, 3500);
+    }
+  </script>
 
 </body>
 </html>
